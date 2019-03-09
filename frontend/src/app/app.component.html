@@ -1,0 +1,13 @@
+<div class="container-fluid main">
+
+  <app-navbar *ngIf="this.auth.checkLoggedIn()"></app-navbar>
+  <div class="content">
+    <!-- <app-sidebar *ngIf="this.auth.checkLoggedIn()"></app-sidebar> -->
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<div class="container footer">
+  <!-- <app-footer></app-footer> -->
+</div>
+<ngx-spinner bdColor="rgba(241,233,233,0.96)" size="large" color="#5f5858" type="ball-clip-rotate"></ngx-spinner>

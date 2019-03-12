@@ -3,6 +3,6 @@ const common = require("../common");
 var users = require("../app/controllers/users.controller");
 
 common.router.get("/users", users.index.bind(users));
-common.router.get("/users/save", users.store);
+common.router.post("/users/save", users.store.bind(users));
 
 module.exports = common.router;

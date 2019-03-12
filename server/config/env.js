@@ -15,5 +15,6 @@ module.exports = {
     port: process.env.PORT || "3000",
     host: process.env.HOST || "127.0.0.1"
   },
-  secret: 'akshdkaj2398742lksaodsjdf;sod9w47r6;ofjsdf'
+  secret: 'akshdkaj2398742lksaodsjdf;sod9w47r6;ofjsdf',
+  saltRounds: 10
 };

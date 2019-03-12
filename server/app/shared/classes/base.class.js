@@ -3,6 +3,7 @@ class BaseController {
         this.error = false;
         this.message = false;
         this.data = [];
+        this.http = 200;
     }
     /**
      * send api response

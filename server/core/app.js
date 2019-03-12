@@ -7,7 +7,7 @@ var mongooseService = require("./mongoose");
  * @param {*} callback
  */
 module.exports.init = function init(callback) {
-  mongooseService.connect(function(db) {
+  mongooseService.connect(function (db) {
     var app = express.init(db);
     if (callback) callback(app, db);
   });
@@ -19,11 +19,11 @@ module.exports.init = function init(callback) {
 module.exports.start = function start(callback) {
   var _this = this;
 
-  _this.init(function(app, db) {
+  _this.init(function (app, db) {
     const port = common.config.server.port;
 
     // Start the app by listening on <port> at <host>
-    app.listen(port, common.config.server.host, function() {
+    app.listen(port, common.config.server.host, function () {
       console.log("--------");
       console.log(common.chalk.green(common.config.app.name));
       console.log();

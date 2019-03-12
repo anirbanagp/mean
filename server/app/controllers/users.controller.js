@@ -1,5 +1,7 @@
-var UserModel = require("../models/user.model");
-var BaseController = require("./../shared/classes/base.class");
+const UserModel = require("../models/user.model");
+const BaseController = require("./../shared/classes/base.class");
+// const bcrypt = require('bcrypt');
+// var common = require("./../../common");
 
 class User extends BaseController {
 
@@ -15,13 +17,21 @@ class User extends BaseController {
   }
   store(req, res) {
     var userInfo = new UserModel({
-      email: "anirban3@gmail.com",
-      name: "Anirban3 Saha"
+      email: req.body.email,
+      name: req.body.name,
+      password: req.body.password
     });
     userInfo.save(function (err, User) {
-      if (err) res.send(err);
-      res.send(User);
-    });
+      if (err) {
+        this.http = 422;
+        this.error = true;
+        this.data = err;
+        this.message = err.message;
+      } else {
+        this.data = User;
+      }
+      res.status(this.http).json(this.apiResponse);
+    }.bind(this));
   }
 }
 

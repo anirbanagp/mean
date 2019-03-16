@@ -24,20 +24,17 @@ class ExpressService {
         app.use(bodyParser.json());
     }
     public initRoutes(app: any): any {
-        let routesArray: any[] = [];
-        // const routerPath = global.appRoot + "/routes/";
+        const routesArray: any[] = [];
+        const routerPath = global.appRoot + "/routes/";
 
-        // fs.readdirSync(routerPath).forEach((file) => {
-        //     const filePath = path.join(routerPath, file);
-        //     const requireFilePath = path.resolve(filePath);
-        //     console.log(requireFilePath);
-        //     routesArray.push(require('requireFilePath'));
-        // });
-        routesArray.push(require('./../routes/user'));
-
+        fs.readdirSync(routerPath).forEach((file) => {
+          if (file.indexOf('.map') === -1) {
+            const filePath = path.join(routerPath, file);
+            const requireFilePath = path.resolve(filePath);
+            routesArray.push(require(requireFilePath));
+          }
+        });
         app.use("/api", routesArray);
     }
-};
-// export default new Express();
-// const xyz = 123;
+}
 export const Express = new ExpressService();

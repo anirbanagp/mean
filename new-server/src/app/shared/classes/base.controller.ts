@@ -1,9 +1,9 @@
 export abstract class BaseController {
 
-    protected error: boolean = false;
+    protected error = false;
     protected message: string | boolean = false;
-    protected data: [] = [];
-    protected http: number = 200;
+    protected data: any = [];
+    protected http = 200;
 
     constructor() {
         this.error = false;
@@ -26,8 +26,5 @@ export abstract class BaseController {
             message,
         };
         return response;
-    }
-    public check() {
-        console.log('worked');
     }
 }

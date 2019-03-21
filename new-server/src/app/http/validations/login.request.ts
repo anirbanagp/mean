@@ -1,6 +1,6 @@
 import { IsEmail, IsString } from 'class-validator';
 
-class CreatePostDto {
+class LoginRequest {
     @IsEmail()
     public email: string;
 
@@ -8,4 +8,4 @@ class CreatePostDto {
     public password: string;
 }
 
-export default CreatePostDto;
+export default LoginRequest;

@@ -20,11 +20,13 @@
     "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
     "chalk": "^2.4.2",
+    "class-transformer": "^0.2.0",
     "class-validator": "^0.9.1",
     "express": "^4.16.4",
     "express-route-autoloader": "^1.0.3",
     "jsonwebtoken": "^8.5.0",
-    "mongoose": "^5.4.17"
+    "mongoose": "^5.4.17",
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^8.3.2",

@@ -3,8 +3,6 @@ import { config } from "./../config/env";
 import { Express as express } from './express';
 import { mongooseService } from './mongoose';
 
-// const chalk = require('chalk');
-
 class App {
 
     public init(callback: CallableFunction) {

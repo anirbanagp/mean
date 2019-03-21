@@ -14,7 +14,7 @@ class User extends BaseController {
   public async index(req: Request, res: Response) {
     // let user = await this.userService.authorize(req.query.email, req.query.password);
 
-    // res.json({ error: false, data: user });
+    res.json({ error: false, data: { name: 'anirban' } });
   }
 
 }

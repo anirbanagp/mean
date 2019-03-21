@@ -25,7 +25,7 @@ class ExpressService {
     }
     public initRoutes(app: any): any {
         const routesArray: any[] = [];
-        const routerPath = global.appRoot + "/routes/";
+        const routerPath = path.resolve(process.cwd() + "/dist/routes/");
 
         fs.readdirSync(routerPath).forEach((file) => {
             if (file.indexOf('.map') === -1) {

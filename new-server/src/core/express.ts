@@ -28,11 +28,11 @@ class ExpressService {
         const routerPath = global.appRoot + "/routes/";
 
         fs.readdirSync(routerPath).forEach((file) => {
-          if (file.indexOf('.map') === -1) {
-            const filePath = path.join(routerPath, file);
-            const requireFilePath = path.resolve(filePath);
-            routesArray.push(require(requireFilePath));
-          }
+            if (file.indexOf('.map') === -1) {
+                const filePath = path.join(routerPath, file);
+                const requireFilePath = path.resolve(filePath);
+                routesArray.push(require(requireFilePath));
+            }
         });
         app.use("/api", routesArray);
     }

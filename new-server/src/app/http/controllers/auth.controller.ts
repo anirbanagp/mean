@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
-import { config } from "./../../config/env";
-import { BaseController } from "./../shared/classes/base.controller";
+import { config } from "./../../../config/env";
+import { BaseController } from "./../../shared/classes/base.controller";
 
 class Auth extends BaseController {
   public login(req: Request, res: Response) {

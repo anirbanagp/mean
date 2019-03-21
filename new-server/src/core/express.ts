@@ -2,6 +2,7 @@ import bodyParser from "body-parser";
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
+import errorMiddleware from "./../app/http/middleware/error.middleware";
 
 class ExpressService {
 
@@ -11,6 +12,8 @@ class ExpressService {
         this.initMiddleware(app);
 
         this.initRoutes(app);
+
+        this.initErrorHandler(app);
 
         return app;
 
@@ -23,6 +26,11 @@ class ExpressService {
         );
         app.use(bodyParser.json());
     }
+
+    public initErrorHandler(app: any): any {
+        app.use(errorMiddleware);
+    }
+
     public initRoutes(app: any): any {
         const routesArray: any[] = [];
         const routerPath = path.resolve(process.cwd() + "/dist/routes/");

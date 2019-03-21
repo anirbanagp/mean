@@ -1,5 +1,5 @@
-import { BaseService } from "../shared/classes/base.service";
-import User from "./../models/user.model";
+import { BaseService } from "../../shared/classes/base.service";
+import User from "./../../models/user.model";
 
 class UserService extends BaseService {
 

@@ -1,9 +1,14 @@
-import { NextFunction, Request, Response } from "express";
-import { BaseController } from "./../../shared/classes/base.controller";
+import to from 'await-to-js';
 import UserService from "./../services/user.service";
 import HttpException from "../exceptions/http.exception";
-import to from 'await-to-js';
+import { NextFunction, Request, Response } from "express";
+import { BaseController } from "./../../shared/classes/base.controller";
 
+/**
+ * this controller contains all functionalities related to a user
+ *
+ * @author Anirban Saha
+ */
 class User extends BaseController {
 
     userService: UserService;
@@ -13,6 +18,12 @@ class User extends BaseController {
         this.userService = new UserService();
     }
 
+    /**
+     * return all users saved in database
+     * @param req request object
+     * @param res response object
+     * @param next next finction
+     */
     public async index(req: Request, res: Response, next: NextFunction) {
         let [error, user] = await to(this.userService.find({}));
 
@@ -24,6 +35,12 @@ class User extends BaseController {
         }
     }
 
+    /**
+     * this will store a user into database
+     * @param req request object
+     * @param res response object
+     * @param next next function
+     */
     public async store(req: Request, res: Response, next: NextFunction) {
         let [error, user] = await to(this.userService.store(req.body));
 

@@ -1,3 +1,8 @@
+/**
+ * this is the base controller contain some common functionalities
+ *
+ * @author Anirban Saha
+ */
 export abstract class BaseController {
 
     protected error = false;

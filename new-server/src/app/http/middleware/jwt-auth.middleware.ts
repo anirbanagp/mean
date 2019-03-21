@@ -1,12 +1,20 @@
-import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { config } from "./../../../config/env";
+import { NextFunction, Request, Response } from "express";
 import TokenMismatchException from "../exceptions/token-mismatch.exception";
 
+/**
+ * this middleware is responsible to check token in header and put user details into request
+ *
+ * @param req request object
+ * @param res response object
+ * @param next next function
+ *
+ * @author Anirban Saha
+ */
 const authenticated = (req: any, res: any, next: NextFunction) => {
-    let token = req.headers['x-access-token'] || req.headers['authorization']; // Express headers are auto converted to lowercase
+    let token = req.headers['x-access-token'] || req.headers['authorization'];
     if (token && token.startsWith('Bearer ')) {
-        // Remove Bearer from string
         token = token.slice(7, token.length);
     }
     if (token) {

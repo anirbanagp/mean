@@ -21,9 +21,9 @@ export abstract class BaseController {
     get apiResponse() {
         const message = this.message || (this.error ? 'Something went wrong!' : 'Successfuly received');
         const response = {
-            data: this.data,
             error: this.error,
             message,
+            data: this.data,
         };
         return response;
     }

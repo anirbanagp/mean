@@ -6,4 +6,10 @@ export abstract class BaseService {
 
         return model;
     }
+
+    public async find(query: object) {
+        let model = await this.model.find(query);
+
+        return model;
+    }
 }

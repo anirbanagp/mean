@@ -1,5 +1,6 @@
-import { BaseService } from "../shared/classes/base.service";
+import { BaseService } from "../../shared/classes/base.service";
 import UserService from "./user.service";
+import bcrypt from "bcrypt";
 
 class AuthService extends BaseService {
 
@@ -15,7 +16,7 @@ class AuthService extends BaseService {
         let user = await this.userService.findOne(query);
 
         if (user) {
-            return user;
+            return await bcrypt.compare(password, user.password);
         }
         return false;
     }

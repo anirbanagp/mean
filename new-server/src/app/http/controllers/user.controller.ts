@@ -1,8 +1,9 @@
 import to from 'await-to-js';
 import { Inject } from 'typescript-ioc';
+import { NextFunction, Request, Response } from "express";
+
 import { UserService } from "./../services/user.service";
 import { HttpException } from "../exceptions/http.exception";
-import { NextFunction, Request, Response } from "express";
 import { MongoException } from '../exceptions/mongo.exception';
 import { BaseController } from "./../../shared/classes/base.controller";
 

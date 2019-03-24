@@ -1,9 +1,10 @@
 import jwt from "jsonwebtoken";
 import { Inject } from "typescript-ioc";
-import { config } from "./../../../config/env";
-import AuthService from "../services/auth.service";
-import { HttpException } from "../exceptions/http.exception";
 import { Request, Response, NextFunction } from "express";
+
+import { config } from "./../../../config/env";
+import { AuthService } from "../services/auth.service";
+import { HttpException } from "../exceptions/http.exception";
 import { BaseController } from "./../../shared/classes/base.controller";
 
 /**

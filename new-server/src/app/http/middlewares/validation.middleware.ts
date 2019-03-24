@@ -1,7 +1,8 @@
 import * as express from 'express';
 import { plainToClass } from 'class-transformer';
 import { validate, ValidationError } from 'class-validator';
-import ValidationException from './../exceptions/validation.exception';
+
+import { ValidationException } from './../exceptions/validation.exception';
 
 /**
  * this middleware is reponsible to validate a request data in respect of a request class

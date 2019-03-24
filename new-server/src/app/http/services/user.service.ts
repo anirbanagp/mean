@@ -1,8 +1,6 @@
-import { Model } from "mongoose";
 import { Inject } from "typescript-ioc";
 import { User } from "./../../models/user.model";
 import { BaseService } from "../../shared/classes/base.service";
-import { IUserModel } from "./../../shared/interfaces/user.interface";
 
 /**
  * this service contains all functionalities realted to users
@@ -12,7 +10,7 @@ import { IUserModel } from "./../../shared/interfaces/user.interface";
 export class UserService extends BaseService {
 
     @Inject
-    model: Model<IUserModel> = User;
+    model = User;
 
     /**
      * store a user into database

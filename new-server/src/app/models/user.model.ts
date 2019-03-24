@@ -1,28 +1,26 @@
 import bcrypt from "bcrypt";
-import { config } from "./../../config/env";
-import { Schema, Model, model } from "mongoose";
+import { prop, Typegoose, plugin } from 'typegoose';
 import beautifyUnique from 'mongoose-beautiful-unique-validation';
-import { IUserModel } from "../shared/interfaces/user.interface";
+
+import { config } from "./../../config/env";
 
 function hashPassword(password: string): string {
     return bcrypt.hashSync(password, config.saltRounds);
 }
-const UserModelSchema: Schema = new Schema({
-    email: {
-        type: String,
-        required: [true, 'email field is required'],
-        unique: 'Two users cannot share the same email',
-    },
-    name: {
-        type: String,
-        required: [true, 'what is the name?'],
-    },
-    password: {
-        type: String,
-        required: true,
-        set: hashPassword,
-    },
-});
-UserModelSchema.plugin(beautifyUnique);
+@plugin(beautifyUnique)
+class UserModel extends Typegoose {
 
-export const User: Model<IUserModel> = model<IUserModel>("User", UserModelSchema);
+    @prop({ required: [true, 'name field is required'] })
+    name: string;
+
+    @prop({
+        required: [true, 'email field is required'],
+        unique: true,
+    })
+    email: string;
+
+    @prop({ required: [true, 'this field is required'], set: hashPassword })
+    password: string;
+
+}
+export const User = new UserModel().getModelForClass(UserModel);

@@ -1,7 +1,8 @@
 import jwt from "jsonwebtoken";
-import { config } from "./../../../config/env";
 import { NextFunction, Request, Response } from "express";
-import TokenMismatchException from "../exceptions/token-mismatch.exception";
+
+import { config } from "./../../../config/env";
+import { TokenMismatchException } from "../exceptions/token-mismatch.exception";
 
 /**
  * this middleware is responsible to check token in header and put user details into request

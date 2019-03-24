@@ -1,7 +1,9 @@
 import to from 'await-to-js';
-import UserService from "./../services/user.service";
-import HttpException from "../exceptions/http.exception";
+import { Inject } from 'typescript-ioc';
+import { UserService } from "./../services/user.service";
+import { HttpException } from "../exceptions/http.exception";
 import { NextFunction, Request, Response } from "express";
+import { MongoException } from '../exceptions/mongo.exception';
 import { BaseController } from "./../../shared/classes/base.controller";
 
 /**
@@ -11,12 +13,8 @@ import { BaseController } from "./../../shared/classes/base.controller";
  */
 class User extends BaseController {
 
+    @Inject
     userService: UserService;
-
-    constructor() {
-        super();
-        this.userService = new UserService();
-    }
 
     /**
      * return all users saved in database
@@ -48,7 +46,7 @@ class User extends BaseController {
             this.data = user;
             res.json(this.apiResponse);
         } else {
-            next(new HttpException(422, 'can not save'));
+            next(new MongoException(error));
         }
     }
 

@@ -3,7 +3,7 @@
  *
  * @author Anirban Saha
  */
-class HttpException extends Error {
+export class HttpException extends Error {
     /**
      * http status [ 400 | 401 | 403 | 500 ..]
      */
@@ -25,5 +25,3 @@ class HttpException extends Error {
         this.message = message;
     }
 }
-
-export default HttpException;

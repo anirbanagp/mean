@@ -2,7 +2,7 @@ import bodyParser from "body-parser";
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
-import errorMiddleware from "./../app/http/middleware/error.middleware";
+import errorMiddleware from "./../app/http/middlewares/error.middleware";
 
 class ExpressService {
 

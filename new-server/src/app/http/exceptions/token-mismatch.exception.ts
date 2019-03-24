@@ -1,4 +1,4 @@
-import HttpException from "./http.exception";
+import { HttpException } from "./http.exception";
 
 /**
  * this will throw token not supplied or invalid token related exception.
@@ -6,10 +6,8 @@ import HttpException from "./http.exception";
  *
  * @author Anirban Saha
  */
-class TokenMismatchException extends HttpException {
+export class TokenMismatchException extends HttpException {
     constructor(message: string) {
         super(401, message);
     }
 }
-
-export default TokenMismatchException;

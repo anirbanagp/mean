@@ -3,7 +3,7 @@
  *
  * @author Anirban Saha
  */
-class ValidationException extends Error {
+export class ValidationException extends Error {
     status = 422;
     message: any;
     constructor(errors: any) {
@@ -11,5 +11,3 @@ class ValidationException extends Error {
         this.message = errors;
     }
 }
-
-export default ValidationException;

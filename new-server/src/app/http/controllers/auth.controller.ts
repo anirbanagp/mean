@@ -1,7 +1,8 @@
 import jwt from "jsonwebtoken";
+import { Inject } from "typescript-ioc";
 import { config } from "./../../../config/env";
 import AuthService from "../services/auth.service";
-import HttpException from "../exceptions/http.exception";
+import { HttpException } from "../exceptions/http.exception";
 import { Request, Response, NextFunction } from "express";
 import { BaseController } from "./../../shared/classes/base.controller";
 
@@ -11,12 +12,9 @@ import { BaseController } from "./../../shared/classes/base.controller";
  * @author Anirban saha
  */
 class Auth extends BaseController {
-    authService: AuthService;
 
-    constructor() {
-        super();
-        this.authService = new AuthService();
-    }
+    @Inject
+    authService: AuthService;
 
     /**
      * check the credentials and return a token on success

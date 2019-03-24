@@ -1,8 +1,8 @@
 import express from 'express';
 
 import AuthController from '../app/http/controllers/auth.controller';
-import authenticated from '../app/http/middleware/jwt-auth.middleware';
-import validationMiddleware from '../app/http/middleware/validation.middleware';
+import authenticated from '../app/http/middlewares/jwt-auth.middleware';
+import validationMiddleware from '../app/http/middlewares/validation.middleware';
 import LoginRequest from '../app/http/validations/login.request';
 
 const router = express.Router();

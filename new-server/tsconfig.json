@@ -1,9 +1,10 @@
 {
     "compilerOptions": {
         "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
         "module": "commonjs",
         "esModuleInterop": true,
-        "target": "es2017",
+        "target": "es6",
         "noImplicitAny": false,
         "moduleResolution": "node",
         "sourceMap": true,

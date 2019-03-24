@@ -1,17 +1,18 @@
+import { Model } from "mongoose";
+import { Inject } from "typescript-ioc";
+import { User } from "./../../models/user.model";
 import { BaseService } from "../../shared/classes/base.service";
-import User from "./../../models/user.model";
+import { IUserModel } from "./../../shared/interfaces/user.interface";
 
 /**
  * this service contains all functionalities realted to users
  *
  * @author Anirban Saha
  */
-class UserService extends BaseService {
+export class UserService extends BaseService {
 
-    constructor() {
-        super();
-        this.model = User;
-    }
+    @Inject
+    model: Model<IUserModel> = User;
 
     /**
      * store a user into database
@@ -26,7 +27,4 @@ class UserService extends BaseService {
 
         return await userInfo.save();
     }
-
 }
-
-export default UserService;
